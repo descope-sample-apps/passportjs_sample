@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Template • TodoMVC</title>
+		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/home.css">
+		<link rel="stylesheet" href="css/login.css">
+		<!-- CSS overrides - remove if you don't need it -->
+		<!--<link rel="stylesheet" href="css/app.css">-->
+	</head>
+	<body>
+		<div id="root"></div>
+		<!-- Load Babel -->
+		<script src="node_modules/@babel/standalone/babel.min.js"></script>
+		<!-- Load React. -->
+		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+		<script src="node_modules/react/umd/react.development.js" crossorigin></script>
+		<script src="node_modules/react-dom/umd/react-dom.development.js" crossorigin></script>
+		<!-- Load history -->
+		<script src="node_modules/history/umd/history.development.js" crossorigin></script>
+		<!-- Load React Router and React Router DOM -->
+		<script src="node_modules/@remix-run/router/dist/router.umd.min.js" crossorigin></script>
+		<script src="node_modules/react-router/dist/umd/react-router.development.js" crossorigin></script>
+		<script src="node_modules/react-router-dom/dist/umd/react-router-dom.development.js" crossorigin></script>
+		<!-- Load our React component. -->
+		<script src="node_modules/classnames/index.js"></script>
+		<script type="text/babel" src="js/todos.js"></script>
+		<script type="text/babel" src="js/newtodoinput.js"></script>
+		<script type="text/babel" src="js/signupprompt.js"></script>
+		<script type="text/babel" src="js/loginprompt.js"></script>
+		<script type="text/babel" src="js/home.js"></script>
+		<script type="text/babel" src="js/header.jsx"></script>
+		<script type="text/babel" src="js/footer.jsx"></script>
+		<script type="text/babel" src="js/todoitem.js"></script>
+		<script type="text/babel" src="js/app.jsx"></script>
+		<script type="text/babel" src="js/index.js"></script>
+		<!-- Scripts here. Don't remove ↓ -->
+		<!--<script src="node_modules/todomvc-common/base.js"></script>-->
+		<!--<script src="js/app.js"></script>-->
+	</body>
+</html>
