@@ -1,92 +1,7 @@
 'use strict';
 
 //import Footer from "./footer";
-
-
-const e = React.createElement;
-const Link = ReactRouterDOM.Link;
-
-let AuthContext = React.createContext(null);
-
-console.log(AuthContext);
-
-
-function AuthProvider({ children }) {
-  const [user, setUser] = React.useState(null);
-  //let [user, setUser] = React.useState({ id: 1, username: 'alice' });
-
-  React.useEffect(() => {
-    console.log('LOAD SESSION...');
-    
-    
-    async function fetchData() {
-      let response = await fetch('/session');
-      // TODO: error handling
-      if (!response.ok) {
-        return;
-      }
-      
-      console.log(response.ok);
-      console.log(response.status);
-      
-      const { user } = await response.json();
-      setUser(user);
-    }
-    fetchData();
-    
-  }, []);
-
-
-  const logIn = async (username, password) => {
-    const response = await fetch('/login/password', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, password })
-    });
-    // TODO: error handling
-    const { user } = await response.json();
-    setUser(user);
-  };
-
-  const logOut = async () => {
-    const response = await fetch('/logout', {
-      method: 'POST'
-    });
-    // TODO: error handling
-    setUser(null);
-  };
-  
-  const signUp = async (username, password) => {
-    const response = await fetch('/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, password })
-    });
-    // TODO: error handling
-    const { user } = await response.json();
-    setUser(user);
-  };
-
-  const value = { user, logIn, logOut, signUp };
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
-
-
-function useAuth() {
-  return React.useContext(AuthContext);
-}
-
-window.useAuth = useAuth;
-
-
+import { AuthProvider } from '@descope/react-sdk'
 
 class App extends React.Component {
   constructor(props) {
@@ -101,8 +16,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-      <AuthProvider value='foo'>
+      <AuthProvider projectId='P2NyeltBwxXl01AO1zxIRoqusres'>
         <div className="App">
           <ReactRouterDOM.Routes>
             <ReactRouterDOM.Route path="/" element={<Todos />} />
@@ -119,7 +33,6 @@ class App extends React.Component {
           <p>Authentication powered by <a href="https://www.passportjs.org">Passport</a></p>
         </footer>
       </AuthProvider>
-      </>
     );
   }
 }

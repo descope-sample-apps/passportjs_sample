@@ -1,3 +1,5 @@
+import { SignUpFlow } from '@descope/react-sdk'
+
 function SignupPrompt() {
   const navigate = ReactRouterDOM.useNavigate();
   const auth = useAuth();
@@ -17,17 +19,13 @@ function SignupPrompt() {
     <section className="prompt">
       <h3>todos</h3>
       <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
-        <section>
-          <label htmlFor="username">Username</label>
-          <input id="username" name="username" type="text" autoComplete="username" required />
-        </section>
-        <section>
-          <label htmlFor="new-password">Password</label>
-          <input id="new-password" name="password" type="password" autoComplete="new-password" required />
-        </section>
-        <button type="submit">Sign up</button>
-      </form>
+      <SignUpFlow
+        onSuccess = {(e) => console.log(e.detail.user)}
+        onError={(e) => console.log('Could not log in!')}
+        theme="light"
+        //    debug=boolean // options are true or false. Default is false. Shows a debug widget when true
+        //    tenant=<tenantId> //You can configure which tenant the signin/signup flow will sign the user into by providing the tenant ID
+      />
       <hr />
       <p className="help">Already have an account? <ReactRouterDOM.Link to="/login">Sign in</ReactRouterDOM.Link></p>
     </section>
