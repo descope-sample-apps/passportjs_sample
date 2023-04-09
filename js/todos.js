@@ -1,5 +1,4 @@
-import { useSession, useUser, useDescope } from '@descope/react-sdk'
-
+const { useSession, useUser, useDescope } = Descope;
 function Todos() {
   const location = ReactRouterDOM.useLocation();
   const { isAuthenticated } = useSession();
@@ -24,9 +23,12 @@ function Todos() {
   React.useEffect(() => {
     console.log('FETCHING TODOS...');
     
-    if (!isAuthenticated()) { return; }
+    if (!isAuthenticated) { return; }
     
     async function fetchData() {
+      // Slavik - pass user session token to the server. either
+      // 1. as cookie (by passing `sessionTokenViaCookie: true` to `AuthProvider`)
+      // 2. as a header (by using `getSessionToken` func from react-sdk / `sessionToken` from 'useSession' hook)
       let response = await fetch('/todos');
       // TODO: error handling
       let json = await response.json();
@@ -34,7 +36,7 @@ function Todos() {
       setTodos(json);
     }
     fetchData();
-  }, [ user.userId ]);// TODO: put empty array here }, []);
+  }, [ user?.userId ]);// TODO: put empty array here }, []);
   
   const handleCreate = async () => {
     const response = await fetch('/todos', {
@@ -112,7 +114,7 @@ function Todos() {
   };
   
   
-  if (!isAuthenticated()) {
+  if (!isAuthenticated) {
     return <Home />
   }
   

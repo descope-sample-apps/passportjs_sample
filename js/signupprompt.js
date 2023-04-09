@@ -1,18 +1,7 @@
-import { SignUpFlow } from '@descope/react-sdk'
+const { SignUpFlow } = Descope;
 
 function SignupPrompt() {
   const navigate = ReactRouterDOM.useNavigate();
-  const auth = useAuth();
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    
-    const formData = new FormData(event.currentTarget);
-    const username = formData.get('username');
-    const password = formData.get('password');
-    await auth.signUp(username, password);
-    navigate('/');
-  }
   
   
   return (

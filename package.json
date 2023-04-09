@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.21.4",
-    "@descope/react-sdk": "^1.0.3",
+    "@descope/react-sdk": "0.0.0-next-a9159503-20230409",
     "classnames": "^2.3.2",
     "connect-sqlite3": "^0.9.13",
     "cookie-parser": "~1.4.4",

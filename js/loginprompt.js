@@ -1,18 +1,8 @@
-import { SignInFlow } from '@descope/react-sdk'
+const { SignInFlow } = Descope;
 
 function LoginPrompt() {
   const navigate = ReactRouterDOM.useNavigate();
-  const auth = useAuth();
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    
-    const formData = new FormData(event.currentTarget);
-    const username = formData.get('username');
-    const password = formData.get('password');
-    await auth.logIn(username, password);
-    navigate('/');
-  }
+
   
   return (
     <section className="prompt">

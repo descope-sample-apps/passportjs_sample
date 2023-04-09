@@ -1,7 +1,6 @@
 'use strict';
 
-//import Footer from "./footer";
-import { AuthProvider } from '@descope/react-sdk'
+const { AuthProvider } = Descope;
 
 class App extends React.Component {
   constructor(props) {
