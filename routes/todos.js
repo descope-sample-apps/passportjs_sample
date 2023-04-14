@@ -5,7 +5,7 @@ var db = require('../db');
 
 var router = express.Router();
 
-router.get('/', passport.authenticate('session'), (req, res, next) => {
+router.get('/', passport.authenticate('descope', { session: false }), (req, res, next) => {
   db.all('SELECT * FROM todos WHERE owner_id = ?', [
     req.user.id
   ], function(err, rows) {
@@ -22,7 +22,7 @@ router.get('/', passport.authenticate('session'), (req, res, next) => {
   });
 });
 
-router.post('/', passport.authenticate('session'), (req, res, next) => {
+router.post('/', passport.authenticate('descope', { session: false }), (req, res, next) => {
   db.run('INSERT INTO todos (owner_id, title, completed) VALUES (?, ?, ?)', [
     req.user.id,
     req.body.title,
@@ -39,7 +39,7 @@ router.post('/', passport.authenticate('session'), (req, res, next) => {
   });
 });
 
-router.patch('/:id', passport.authenticate('session'), (req, res, next) => {
+router.patch('/:id', passport.authenticate('descope', { session: false }), (req, res, next) => {
   var assigns = [];
   var values = [];
   if ('title' in req.body) {
@@ -67,7 +67,7 @@ router.patch('/:id', passport.authenticate('session'), (req, res, next) => {
   });
 });
 
-router.delete('/:id', passport.authenticate('session'), (req, res, next) => {
+router.delete('/:id', passport.authenticate('descope', { session: false }), (req, res, next) => {
   db.run('DELETE FROM todos WHERE id = ? AND owner_id = ?', [
     req.params.id,
     req.user.id

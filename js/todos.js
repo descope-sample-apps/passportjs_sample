@@ -1,8 +1,8 @@
 const { useSession, useUser, useDescope } = Descope;
 function Todos() {
   const location = ReactRouterDOM.useLocation();
-  const { isAuthenticated } = useSession();
-  const { user } = useUser();
+  const { isAuthenticated, isSessionLoading } = useSession();
+  const { user, isUserLoading } = useUser();
   const { logout } = useDescope();
   const [todos, setTodos] = React.useState([]);
   const [editingTodo, setEditingTodo] = React.useState(null);
@@ -26,9 +26,6 @@ function Todos() {
     if (!isAuthenticated) { return; }
     
     async function fetchData() {
-      // Slavik - pass user session token to the server. either
-      // 1. as cookie (by passing `sessionTokenViaCookie: true` to `AuthProvider`)
-      // 2. as a header (by using `getSessionToken` func from react-sdk / `sessionToken` from 'useSession' hook)
       let response = await fetch('/todos');
       // TODO: error handling
       let json = await response.json();
@@ -118,6 +115,10 @@ function Todos() {
     return <Home />
   }
   
+  if (isSessionLoading || isUserLoading) {
+    return <p>Loading...</p>
+  }
+
   return (
     <section className="todoapp">
       <nav className="nav">

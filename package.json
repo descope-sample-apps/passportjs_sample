@@ -43,7 +43,7 @@
     "history": "^5.3.0",
     "morgan": "~1.9.1",
     "passport": "^0.5.3",
-    "passport-local": "^1.0.0",
+    "passport-descope": "file:/Users/slavik/dev/go/src/github.com/descope/passport-descope/dist/cjs/index.cjs.js",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",

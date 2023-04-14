@@ -15,7 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <AuthProvider projectId='P2NyeltBwxXl01AO1zxIRoqusres'>
+      <AuthProvider projectId='P2NyeltBwxXl01AO1zxIRoqusres' sessionTokenViaCookie='true'>
         <div className="App">
           <ReactRouterDOM.Routes>
             <ReactRouterDOM.Route path="/" element={<Todos />} />
