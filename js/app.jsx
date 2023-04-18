@@ -1,6 +1,7 @@
 'use strict';
 
 const { AuthProvider } = Descope;
+const DESCOPE_PROJECT_ID='P2NyeltBwxXl01AO1zxIRoqusres';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <AuthProvider projectId='P2NyeltBwxXl01AO1zxIRoqusres' sessionTokenViaCookie='true'>
+      <AuthProvider projectId={DESCOPE_PROJECT_ID} sessionTokenViaCookie>
         <div className="App">
           <ReactRouterDOM.Routes>
             <ReactRouterDOM.Route path="/" element={<Todos />} />
