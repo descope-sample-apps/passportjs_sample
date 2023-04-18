@@ -1,7 +1,7 @@
 'use strict';
 
 const { AuthProvider } = Descope;
-const DESCOPE_PROJECT_ID='P2NyeltBwxXl01AO1zxIRoqusres';
+const DESCOPE_PROJECT_ID = 'P2NyeltBwxXl01AO1zxIRoqusres';
 
 class App extends React.Component {
   constructor(props) {
