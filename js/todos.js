@@ -110,14 +110,13 @@ function Todos() {
     logout();
   };
   
-  
-  if (!isAuthenticated) {
-    return <Home />
-  }
-  
   if (isSessionLoading || isUserLoading) {
     return <p>Loading...</p>
   }
+  
+  if (!isAuthenticated) {
+    return <Home />
+  }  
 
   return (
     <section className="todoapp">
