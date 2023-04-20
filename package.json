@@ -1,31 +1,24 @@
 {
-  "name": "todos-react-express-password",
+  "name": "todos-react-express-descope",
   "version": "0.0.0",
   "private": true,
-  "description": "Todo app using React, Express and Passport for sign in with username and password.",
+  "description": "Todo app using React, Express and Passport with Descope strategy for sign in.",
   "keywords": [
     "example",
     "express",
     "passport",
+    "descope",
     "react",
     "sqlite"
   ],
-  "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "https://www.jaredhanson.me/"
-  },
-  "homepage": "https://github.com/passport/todos-react-express-password",
+  "author": "Descope",
+  "homepage": "https://github.com/descope-sample-apps/todos-react-express-descope",
   "repository": {
     "type": "git",
-    "url": "git://github.com/passport/todos-react-express-password.git"
+    "url": "git://github.com/descope-sample-apps/todos-react-express-descope.git"
   },
   "bugs": {
-    "url": "https://github.com/passport/todos-react-express-password/issues"
-  },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/jaredhanson"
+    "url": "https://github.com/descope-sample-apps/todos-react-express-descope/issues"
   },
   "license": "Unlicense",
   "scripts": {
@@ -33,16 +26,16 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.21.4",
+    "@descope/react-sdk": "0.0.0-next-a9159503-20230409",
     "classnames": "^2.3.2",
-    "connect-sqlite3": "^0.9.13",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
     "express": "~4.16.1",
-    "express-session": "^1.17.2",
     "history": "^5.3.0",
     "morgan": "~1.9.1",
     "passport": "^0.5.3",
-    "passport-local": "^1.0.0",
+    "passport-descope": "file:/Users/slavik/dev/go/src/github.com/descope/passport-descope/dist/cjs/index.cjs.js",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",

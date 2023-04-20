@@ -1,6 +1,9 @@
+const { useSession, useUser, useDescope } = Descope;
 function Todos() {
   const location = ReactRouterDOM.useLocation();
-  const auth = useAuth();
+  const { isAuthenticated, isSessionLoading } = useSession();
+  const { user, isUserLoading } = useUser();
+  const { logout } = useDescope();
   const [todos, setTodos] = React.useState([]);
   const [editingTodo, setEditingTodo] = React.useState(null);
   const [newTitle, setNewTitle] = React.useState('');
@@ -20,7 +23,7 @@ function Todos() {
   React.useEffect(() => {
     console.log('FETCHING TODOS...');
     
-    if (!auth.user) { return; }
+    if (!isAuthenticated) { return; }
     
     async function fetchData() {
       let response = await fetch('/todos');
@@ -30,7 +33,7 @@ function Todos() {
       setTodos(json);
     }
     fetchData();
-  }, [ auth.user ]);// TODO: put empty array here }, []);
+  }, [ user?.userId ]);// TODO: put empty array here }, []);
   
   const handleCreate = async () => {
     const response = await fetch('/todos', {
@@ -104,19 +107,22 @@ function Todos() {
   };
   
   const handleLogOut = async (event) => {
-    auth.logOut();
+    logout();
   };
   
-  
-  if (!auth.user) {
-    return <Home />
+  if (isSessionLoading || isUserLoading) {
+    return <p>Loading...</p>
   }
   
+  if (!isAuthenticated) {
+    return <Home />
+  }  
+
   return (
     <section className="todoapp">
       <nav className="nav">
         <ul>
-          <li className="user">{auth.user.username}</li>
+          <li className="user">{user.name}</li>
           <li>
             <button className="logout" onClick={handleLogOut}>Sign out</button>
           </li>
