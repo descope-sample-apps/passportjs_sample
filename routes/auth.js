@@ -5,7 +5,8 @@ var path = require('path');
 
 
 passport.use(new DescopeStrategy({
-  projectId: process.env.DESCOPE_PROJECT || 'P2NyeltBwxXl01AO1zxIRoqusres',
+  projectId: 'P2NyeltBwxXl01AO1zxIRoqusres',
+  managementKey: '',
   verify: (jwtDetails, cb) => cb(null, {id: jwtDetails.token.sub})
 }));
 
