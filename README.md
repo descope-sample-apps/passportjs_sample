@@ -1,4 +1,4 @@
-# todos-react-express-password
+# todos-react-express-descope
 
 This app illustrates how to use [Passport](https://www.passportjs.org/) with
 [React](https://reactjs.org/) and [Express](https://expressjs.com/) to sign
