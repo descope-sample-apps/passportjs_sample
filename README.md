@@ -1,6 +1,6 @@
 # Todo App Sample App
 
-This todo app showcases sign in functionality with the Descope [Passport](https://www.passportjs.org/) Strategy, [Express](https://expressjs.com/), and[React](https://reactjs.org/). This example can be used to help you implement the Descope strategy in your own projects.
+This todo app showcases sign in functionality with the Descope Passport Strategy, [Express](https://expressjs.com/), and [React](https://reactjs.org/). This example can be used to help you implement the Descope strategy in your own projects.
 
 ## Overview 💡
 
@@ -31,7 +31,7 @@ npm install
 npm run start
 ```
 
-## Implementation
+## Implementation ⚙️
 
 This app conforms with the [TodoMVC](https://todomvc.com/) [specification](https://github.com/tastejs/todomvc/blob/master/app-spec.md),
 with two notable exceptions.  First, it adds a user login and registration
