@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.21.4",
-    "@descope/react-sdk": "0.0.0-next-a9159503-20230409",
+    "@descope/react-sdk": "0.0.0-next-f29fc833-20230604",
     "classnames": "^2.3.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
