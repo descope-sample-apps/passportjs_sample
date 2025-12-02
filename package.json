@@ -31,7 +31,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
-    "express": "~4.20.0",
+    "express": "~4.22.0",
     "history": "^5.3.0",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
